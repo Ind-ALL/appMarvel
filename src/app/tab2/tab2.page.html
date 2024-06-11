@@ -1,17 +1,30 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Tab 2
+      Feed de Personagens
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 2</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content [fullscreen]="true" color="danger">
+  <ion-refresher slot="fixed" (ionRefresh)="efeitoRefresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
 
-  <app-explore-container name="Tab 2 page"></app-explore-container>
+  <ion-card *ngFor="let personagem of lista_personagens" color="light">
+    <ion-img [src]="personagem.thumbnail.path + '.' + personagem.thumbnail.extension"></ion-img>
+    <ion-card-header>
+      <ion-card-title>{{ personagem.name }}</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      {{ personagem.description || 'Não tem descrição no momento!' }}
+    </ion-card-content>
+  </ion-card>
+
+  <ion-infinite-scroll threshold="100px" (ionInfinite)="efeitoScrollInfinito($event)">
+    <ion-infinite-scroll-content
+      loadingSpinner="bubbles"
+      loadingText="Carregando mais Personagens">
+    </ion-infinite-scroll-content>
+  </ion-infinite-scroll>
 </ion-content>
