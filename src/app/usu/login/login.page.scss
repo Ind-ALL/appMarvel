@@ -1,0 +1,13 @@
+ion-content {
+  --background: #b71c1c; /* Red background color */
+}
+
+.custom-button {
+  color: #ffeb3b; /* Yellow text color */
+}
+
+.custom-button:hover,
+.custom-button:active {
+  background-color: #ffeb3b; /* Yellow background on hover or active */
+  color: #b71c1c; /* Red text color */
+}

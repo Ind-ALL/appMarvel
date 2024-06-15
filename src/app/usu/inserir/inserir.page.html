@@ -7,16 +7,18 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
-  <ion-item>
-    <ion-label position="floating">E-mail</ion-label>
-    <ion-input name="login" type="text" [(ngModel)]="email"></ion-input>
-  </ion-item>
+<ion-content color="danger" class="centralize-content">
+  <div class="centralize-container">
+    <ion-item>
+      <ion-label position="floating">E-mail</ion-label>
+      <ion-input name="login" type="text" [(ngModel)]="email"></ion-input>
+    </ion-item>
 
-  <ion-item>
-    <ion-label position="floating">Senha</ion-label>
-    <ion-input name="senha" type="password" [(ngModel)]="senha"></ion-input>
-  </ion-item>
+    <ion-item>
+      <ion-label position="floating">Senha</ion-label>
+      <ion-input name="senha" type="password" [(ngModel)]="senha"></ion-input>
+    </ion-item>
 
-  <ion-button expand="full" (click)="insereUsuario()">Salvar</ion-button>
+    <ion-button expand="full" (click)="insereUsuario()" color="dark">Salvar</ion-button>
+  </div>
 </ion-content>

@@ -4,7 +4,7 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content color="danger">
   <ion-item>
     <ion-label position="floating">E-mail</ion-label>
     <ion-input name="login" type="text" [(ngModel)]="email"></ion-input>
@@ -15,7 +15,7 @@
     <ion-input name="senha" type="password" [(ngModel)]="senha"></ion-input>
   </ion-item>
 
-  <ion-button expand="full" (click)="loginUsuario()">Login</ion-button>
+  <ion-button expand="full" color="dark" (click)="loginUsuario()">Login</ion-button>
 
-  <ion-button expand="full" fill="clear" routerLink="/inserir">Novo Cadastro</ion-button>
+  <ion-button expand="full" fill="clear" routerLink="/inserir" class="custom-button">Novo Cadastro</ion-button>
 </ion-content>
