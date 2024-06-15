@@ -1,8 +1,12 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>
-      Feed de Personagens
-    </ion-title>
+    <ion-title>Feed de Personagens</ion-title>
+  </ion-toolbar>
+  <ion-toolbar>
+    <ion-searchbar [(ngModel)]="query"></ion-searchbar>
+    <ion-buttons slot="end">
+      <ion-button (click)="realizarPesquisa()">Pesquisar</ion-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
@@ -10,6 +14,10 @@
   <ion-refresher slot="fixed" (ionRefresh)="efeitoRefresh($event)">
     <ion-refresher-content></ion-refresher-content>
   </ion-refresher>
+
+  <div *ngIf="lista_personagens.length === 0 && pesquisaRealizada">
+    <p>Nenhum personagem encontrado.</p>
+  </div>
 
   <ion-card *ngFor="let personagem of lista_personagens" color="light">
     <ion-img [src]="personagem.thumbnail.path + '.' + personagem.thumbnail.extension"></ion-img>
@@ -27,4 +35,10 @@
       loadingText="Carregando mais Personagens">
     </ion-infinite-scroll-content>
   </ion-infinite-scroll>
+
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button size="small" color="dark" (click)="sair()">
+      <ion-icon name="exit"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
 </ion-content>
