@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { MarvelService } from '../services/marvel.service';
 import { LoadingController } from '@ionic/angular';
+import { Router } from '@angular/router';
+import {App} from '@capacitor/app'
 
 @Component({
   selector: 'app-tab2',
@@ -15,6 +17,7 @@ export class Tab2Page implements OnInit {
   public limit: number = 10;
   public query: string = '';
   public pesquisaRealizada: boolean = false;
+  router: any;
 
   constructor(
     private marvelService: MarvelService,
@@ -97,6 +100,6 @@ export class Tab2Page implements OnInit {
   }
 
   sair() {
-    (navigator as any)['app'].exitApp();
+    this.router.navigate(['']); // Redireciona para a rota de login
   }
 }
