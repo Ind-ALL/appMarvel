@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { MarvelService } from '../services/marvel.service';
 import { LoadingController } from '@ionic/angular';
 import { Router } from '@angular/router';
-import {App} from '@capacitor/app'
 
 @Component({
   selector: 'app-tab2',
@@ -17,11 +16,11 @@ export class Tab2Page implements OnInit {
   public limit: number = 10;
   public query: string = '';
   public pesquisaRealizada: boolean = false;
-  router: any;
 
   constructor(
     private marvelService: MarvelService,
-    private loadingController: LoadingController
+    private loadingController: LoadingController,
+    private router: Router
   ) {}
 
   ngOnInit() {
@@ -100,6 +99,12 @@ export class Tab2Page implements OnInit {
   }
 
   sair() {
-    this.router.navigate(['']); // Redireciona para a rota de login
+    this.router.navigate(['']);
+  }
+
+  imgError(event: Event, personagem: any) {
+    const element = event.target as HTMLImageElement;
+    element.src = 'assets/logo-marvel-Photoroom.png';
+    console.error(`Imagem não carregada para o personagem: ${personagem.name}`);
   }
 }
