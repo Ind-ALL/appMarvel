@@ -9,7 +9,8 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "lint": "ng lint"
+    "lint": "ng lint",
+    "gerar-app": "ionic build && ionic cap copy && ionic cap sync && ionic cap open android"
   },
   "private": true,
   "dependencies": {
@@ -22,6 +23,7 @@
     "@angular/platform-browser": "^18.0.0",
     "@angular/platform-browser-dynamic": "^18.0.0",
     "@angular/router": "^18.0.0",
+    "@capacitor/android": "6.0.0",
     "@capacitor/app": "6.0.0",
     "@capacitor/core": "6.0.0",
     "@capacitor/haptics": "6.0.0",
