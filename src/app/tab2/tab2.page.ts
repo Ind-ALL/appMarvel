@@ -106,5 +106,11 @@ export class Tab2Page implements OnInit {
     const element = event.target as HTMLImageElement;
     element.src = 'assets/logo-marvel-Photoroom.png';
     console.error(`Imagem não carregada para o personagem: ${personagem.name}`);
+    console.error('URL da imagem com erro:', personagem.thumbnail.path + '.' + personagem.thumbnail.extension);
+  }
+
+  logUrl(personagem: any) {
+    console.log('Image URL:', personagem.thumbnail.path + '.' + personagem.thumbnail.extension);
   }
 }
+

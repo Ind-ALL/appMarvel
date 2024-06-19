@@ -20,7 +20,7 @@
   </div>
 
   <ion-card *ngFor="let personagem of lista_personagens" color="light">
-    <ion-img [src]="personagem.thumbnail.path + '.' + personagem.thumbnail.extension" (error)="imgError($event, personagem)"></ion-img>
+    <img [src]="personagem.thumbnail.path + '.' + personagem.thumbnail.extension" alt="{{personagem.name}}" (error)="imgError($event, personagem)" (load)="logUrl(personagem)">
     <ion-card-header>
       <ion-card-title>{{ personagem.name }}</ion-card-title>
     </ion-card-header>
@@ -42,3 +42,4 @@
     </ion-fab-button>
   </ion-fab>
 </ion-content>
+
